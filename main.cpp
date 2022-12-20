@@ -1,36 +1,21 @@
 #include <iostream>
 #include <fstream>
+#include <chrono>
 #include "helper.h"
 
-    /*
-    Course, Time
-    COMM101, 00:00:00
-    MATH176, 00:00:00
-    ECON202, 00:00:00
-    ENGL102, 00:00:00
-    CS120, 00:00:00
-    */
-
 int main() {
+    Clock clock;
     linkedlist ls;
     importFileContents(ls);
     ls.print();
 
-    // ofstream outFile(FILE_NAME);
+    string courseName = getCourseName(&ls);
+    clock.start();
 
-    // if (outFile.is_open()) {
-    //     outFile << "Opened\n";
-    // }
+    clock.end();
 
-    // outFile.close();
+    ls.appendNewCourse(courseName, clock.getDuration());
 
-    // ifstream inFile(FILE_NAME);
-
-    // if (inFile.is_open()) {
-    //     string x;
-    //     inFile >> x;
-    //     cout << x;
-    // }
-
-    // inFile.close();
+    ls.writeToFile();
+    ls.print();
 }
