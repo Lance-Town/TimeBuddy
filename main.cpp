@@ -1,3 +1,10 @@
+/* 
+* Lance Townsend
+* 
+* Program to track how much time I have spent studying in 
+* my various classes in college.
+*/
+
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -18,4 +25,6 @@ int main() {
 
     ls.writeToFile();
     ls.print();
+
+    return 0;
 }
